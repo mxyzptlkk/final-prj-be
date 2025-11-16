@@ -1,0 +1,9 @@
+*appsettings*.json
+
+bin/
+obj/
+[Pp]roperties/
+[Ll]ogs/
+[Mm]igrations/
+/.data/
+/SK.FinalP.WebApp/
