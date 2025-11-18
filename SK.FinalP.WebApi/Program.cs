@@ -6,6 +6,8 @@ using Serilog;
 using SK.FinalP.Application;
 using SK.FinalP.Infrastructure;
 using SK.FinalP.WebApi;
+using SK.FinalP.WebApi.Helpers;
+using SK.FinalP.WebApi.Middlewares;
 using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,7 +25,11 @@ builder.Services
     .AddInfrastructureServices(builder.Configuration)
     .AddApplicationServices();
 
+builder.Services.AddSingleton<IJwtHelper, JwtHelper>();
+
 var app = builder.Build();
+
+app.UseMiddleware<ErrorHanlderMiddleware>();
 
 app.MapControllers();
 

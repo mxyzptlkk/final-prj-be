@@ -5,6 +5,7 @@ namespace SK.FinalP.Shared.Exceptions;
 public class BizException : Exception
 {
     public BizException()
+        : base("A business exception has occurred.")
     {
     }
 
